@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E556F8DD1D872C770032F90B /* BMWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E556F8DC1D872C770032F90B /* BMWViewController.swift */; };
-		E556F8DF1D872C830032F90B /* AudiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E556F8DE1D872C830032F90B /* AudiViewController.swift */; };
+		75E6A2941D951545000F734B /* CarManufacture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6A2931D951545000F734B /* CarManufacture.swift */; };
+		75E6A2961D952E41000F734B /* CarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6A2951D952E41000F734B /* CarModel.swift */; };
+		E556F8DD1D872C770032F90B /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E556F8DC1D872C770032F90B /* CarDetailsViewController.swift */; };
 		E58BC1DE1D870FF600F6768C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58BC1DD1D870FF600F6768C /* AppDelegate.swift */; };
 		E58BC1E31D870FF600F6768C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E58BC1E11D870FF600F6768C /* Main.storyboard */; };
 		E58BC1E61D870FF600F6768C /* multiView2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E58BC1E41D870FF600F6768C /* multiView2.xcdatamodeld */; };
@@ -37,8 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E556F8DC1D872C770032F90B /* BMWViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMWViewController.swift; sourceTree = "<group>"; };
-		E556F8DE1D872C830032F90B /* AudiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudiViewController.swift; sourceTree = "<group>"; };
+		75E6A2931D951545000F734B /* CarManufacture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarManufacture.swift; sourceTree = "<group>"; };
+		75E6A2951D952E41000F734B /* CarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarModel.swift; sourceTree = "<group>"; };
+		E556F8DC1D872C770032F90B /* CarDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
 		E58BC1DA1D870FF600F6768C /* multiView2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = multiView2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E58BC1DD1D870FF600F6768C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E58BC1E21D870FF600F6768C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,10 +106,11 @@
 			isa = PBXGroup;
 			children = (
 				E58BC20E1D8711AF00F6768C /* MainView.swift */,
+				E556F8DC1D872C770032F90B /* CarDetailsViewController.swift */,
+				75E6A2931D951545000F734B /* CarManufacture.swift */,
+				75E6A2951D952E41000F734B /* CarModel.swift */,
 				E58BC1DD1D870FF600F6768C /* AppDelegate.swift */,
 				E58BC1E11D870FF600F6768C /* Main.storyboard */,
-				E556F8DC1D872C770032F90B /* BMWViewController.swift */,
-				E556F8DE1D872C830032F90B /* AudiViewController.swift */,
 				E58BC1E71D870FF600F6768C /* Assets.xcassets */,
 				E58BC1E91D870FF600F6768C /* LaunchScreen.storyboard */,
 				E58BC1EC1D870FF600F6768C /* Info.plist */,
@@ -267,9 +270,10 @@
 			files = (
 				E58BC1DE1D870FF600F6768C /* AppDelegate.swift in Sources */,
 				E58BC20F1D8711AF00F6768C /* MainView.swift in Sources */,
-				E556F8DF1D872C830032F90B /* AudiViewController.swift in Sources */,
+				75E6A2961D952E41000F734B /* CarModel.swift in Sources */,
+				75E6A2941D951545000F734B /* CarManufacture.swift in Sources */,
 				E58BC1E61D870FF600F6768C /* multiView2.xcdatamodeld in Sources */,
-				E556F8DD1D872C770032F90B /* BMWViewController.swift in Sources */,
+				E556F8DD1D872C770032F90B /* CarDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

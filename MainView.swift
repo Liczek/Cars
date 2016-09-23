@@ -9,33 +9,55 @@
 import Foundation
 import UIKit
 
-
 class MainView: UITableViewController {
     
-    struct Dealer {
-        var mark : String
-        var models : [String]
-        var imagesOfModels : [UIImage!]
-        }
-    var Dealers = [Dealer]()
-    let Audi = "Audi"
-    let BMW = "BMW"
-    let marks = ["Audi", "BMW"]
-    
-    
+    var Dealers = [CarManufacture]()
     
     override func viewDidLoad() {
         
-        Dealers = [Dealer(mark: "BMW", models: ["\(BMW) X1", "\(BMW) X5", "\(BMW) X7"],
-                    imagesOfModels: [UIImage(named:"X1"), UIImage(named:"X1"), UIImage(named:"X1")]),
-                   Dealer(mark: "Audi", models: ["\(Audi) A1", "\(Audi) A3", "\(Audi) A7"],
-                    imagesOfModels: [UIImage(named:"A1"), UIImage(named:"A3"), UIImage(named:"A7")])]
+        let bmw = CarManufacture()
+        bmw.mark = "BMW";
+        
+        let x1 = CarModel()
+        x1.modelName = "X1"
+        x1.imageOfModel = UIImage(named:"X1")
+
+        let x5 = CarModel()
+        x5.modelName = "X5"
+        x5.imageOfModel = UIImage(named:"X1")
+        
+        let x7 = CarModel()
+        x7.modelName = "X7"
+        x7.imageOfModel = UIImage(named:"X1")
+        
+        bmw.models = [x1, x5, x7]
+        
+        let audi = CarManufacture()
+        audi.mark = "Audi"
+        
+        let a1 = CarModel()
+        a1.modelName = "A1"
+        a1.imageOfModel = UIImage(named:"A1")
+
+        let a3 = CarModel()
+        a3.modelName = "A3"
+        a3.imageOfModel = UIImage(named:"A3")
+        
+        let a7 = CarModel()
+        a7.modelName = "A7"
+        a7.imageOfModel = UIImage(named:"A7")
+
+        audi.models = [a1, a3, a7]
+
+        Dealers = [bmw, audi]
     }
     
-    
-   
-    
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "FromMainViewControllerToCarDetailsViewController" {
+            let carDetailsViewController = segue.destinationViewController as! CarDetailsViewController
+            carDetailsViewController.carModel = sender as! CarModel
+        }
+    }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return Dealers.count
@@ -45,36 +67,27 @@ class MainView: UITableViewController {
         return Dealers[section].mark
     }
     
-    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Dealers[section].models.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let dealer = Dealers[indexPath.section]
+        let model = dealer.models[indexPath.row]
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("MainCell")
-        cell?.imageView!.image = Dealers[indexPath.section].imagesOfModels[indexPath.row]
-        cell?.textLabel!.text = Dealers[indexPath.section].models[indexPath.row]
-        cell?.selectionStyle = .None
+        cell?.imageView!.image = model.imageOfModel
+        cell?.textLabel!.text = model.modelName
+
         return cell!
     }
     
-   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    
-    
-    
-    if Dealers[indexPath.section].mark == BMW{
-        let bmwView = storyboard!.instantiateViewControllerWithIdentifier(BMW)
-        self.navigationController?.pushViewController(bmwView, animated: true)
-        //self.performSegueWithIdentifier("BMW", sender: indexPath)
-    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
+        let dealer = Dealers[indexPath.section]
+        
+        self.performSegueWithIdentifier("FromMainViewControllerToCarDetailsViewController", sender: dealer.models[indexPath.row])
     }
-    else if Dealers[indexPath.section].mark == Audi{
-        let audiView = storyboard?.instantiateViewControllerWithIdentifier(Audi)
-        self.navigationController?.pushViewController(audiView!, animated: true)
-        //self.performSegueWithIdentifier("Audi", sender: indexPath)
-    }
-    }
-    
     
 }
